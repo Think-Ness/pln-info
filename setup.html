@@ -6,14 +6,14 @@
   <title>Landing Page Tab JSON</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex justify-center items-center p-4">
-  <div class="bg-white rounded-2xl shadow-xl w-full max-w-4xl h-[90vh] flex flex-col">
+<body class="bg-gray-100 min-h-screen wid-full flex flex-col items-center p-4">
+  <div class="w-full h-full bg-white shadow rounded-xl overflow-hidden flex flex-col">
     
     <!-- Tabs -->
-    <div id="tab-buttons" class="flex border-b border-gray-300 bg-gray-50 rounded-t-2xl"></div>
+    <div id="tab-buttons" class="flex flex-wrap border-b bg-gray-50"></div>
 
     <!-- Content -->
-    <div id="tab-content" class="flex-1 p-6 overflow-y-auto"></div>
+    <div id="tab-content" class="p-6 flex-1 overflow-y-auto"></div>
   </div>
 
   <script>
@@ -26,11 +26,13 @@
         const tabButtons = document.getElementById("tab-buttons");
         const tabContent = document.getElementById("tab-content");
 
+        
+
         // Generate tombol & konten
         tabs.forEach((tab, index) => {
           const btn = document.createElement("button");
           btn.textContent = tab.title;
-          btn.className = "px-4 py-2 text-sm md:text-base transition border-b-2 -mb-px";
+          btn.className = "tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200 active";
           btn.dataset.index = index;
           
           btn.addEventListener("click", () => {
@@ -39,7 +41,7 @@
             [...tabContent.children].forEach(c => c.classList.add("hidden"));
 
             // Aktifkan tab yg dipilih
-            btn.classList.add("border-blue-500", "text-blue-600");
+            btn.classList.add("border-blue-500", "border-t-2");
             document.getElementById("content-" + index).classList.remove("hidden");
           });
 
@@ -49,12 +51,15 @@
           const contentDiv = document.createElement("div");
           contentDiv.id = "content-" + index;
           contentDiv.className = "hidden prose max-w-none";
-          contentDiv.innerHTML = `<p>${tab.content}</p>`;
+          contentDiv.innerHTML = `
+            <h1 class="text-xl font-bold mb-4">${tab.judul}</h1>
+            <p>${tab.content}</p>
+          `;
           tabContent.appendChild(contentDiv);
 
           // Default aktif tab pertama
           if (index === 0) {
-            btn.classList.add("border-blue-500", "text-blue-600");
+            btn.classList.add("border-blue-500", "border-t-2");
             contentDiv.classList.remove("hidden");
           }
         });
@@ -64,6 +69,9 @@
     }
 
     loadTabs();
+
   </script>
 </body>
 </html>
+;
+          
