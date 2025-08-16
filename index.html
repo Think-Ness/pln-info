@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pemberkasan Luar Negeri</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
+
+  <!-- Container -->
+  <div class="w-full max-w-6xl bg-white shadow rounded-lg overflow-hidden min-h-screen flex flex-col">
+    <!-- Tabs -->
+    <div class="flex flex-wrap border-b bg-gray-50">
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200 active" data-target="tab1">Kata Pengantar</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab2">Surat Rekomendasi Kemenag Domisili</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab3">Surat Rekomendasi Kemenag Jakarta</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab4">Perpanjangan Izin Tinggal</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab5">Pembuatan Visa Pelajar (Online)</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab6">Pengajuan EPO / ERP</button>
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex-1">
+      <div id="tab1" class="tab-content active">
+        <h1 class="text-xl font-bold mb-4">Selamat datang di pemberkasan luar negeri</h1>
+        <p class="text-gray-700 leading-relaxed">
+          Di sini, Anda akan menemukan panduan lengkap untuk mengajukan berkas ke Kementerian Agama dan Imigrasi. Kami menyediakan informasi terkini tentang dokumen yang diperlukan dan prosedur pengajuan. 
+          Kami siap membantu Anda menjalankan tugas sebagai pembimbing luar negeri dengan lebih efisien. Jangan ragu untuk bertanya jika ada persoalan. Terima kasih.
+        </p>
+        <p class="mt-6 text-gray-600">Salam kami, Staf Pembimbing Luar Negeri.</p>
+      </div>
+
+      <div id="tab2" class="tab-content">
+        <h1 class="text-xl font-bold mb-4">Surat Rekomendasi Kemenag Domisili</h1>
+        <p class="text-gray-700">Panduan dan persyaratan untuk mendapatkan surat rekomendasi dari Kemenag domisili Anda.</p>
+      </div>
+
+      <div id="tab3" class="tab-content">
+        <h1 class="text-xl font-bold mb-4">Surat Rekomendasi Kemenag Jakarta</h1>
+        <p class="text-gray-700">Informasi lengkap terkait pengajuan surat rekomendasi Kemenag Jakarta.</p>
+      </div>
+
+      <div id="tab4" class="tab-content">
+        <h1 class="text-xl font-bold mb-4">Perpanjangan Izin Tinggal</h1>
+        <p class="text-gray-700">Langkah-langkah dan dokumen yang dibutuhkan untuk memperpanjang izin tinggal.</p>
+      </div>
+
+      <div id="tab5" class="tab-content">
+        <h1 class="text-xl font-bold mb-4">Pembuatan Visa Pelajar (Online)</h1>
+        <p class="text-gray-700">Panduan membuat visa pelajar secara online melalui sistem resmi.</p>
+      </div>
+
+      <div id="tab6" class="tab-content">
+        <h1 class="text-xl font-bold mb-4">Pengajuan EPO / ERP</h1>
+        <p class="text-gray-700">Informasi prosedur pengajuan Exit Permit Only (EPO) dan Exit Re-Entry Permit (ERP).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // reset
+        buttons.forEach(b => b.classList.remove("bg-white", "border-t-2", "border-blue-500"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        // activate
+        btn.classList.add("bg-white", "border-t-2", "border-blue-500");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
