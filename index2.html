@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pemberkasan Luar Negeri</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen wid-full flex flex-col items-center p-4">
+
+
+
+  <!-- Container -->
+  <div class="w-full h-full bg-white shadow rounded-xl overflow-hidden flex flex-col">
+    <!-- Tabs -->
+    <div class="flex flex-wrap border-b bg-gray-50">
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200 active" data-target="tab1">Kata Pengantar</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab2">Surat Rekomendasi Kemenag Domisili</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab3">Surat Rekomendasi Kemenag Jakarta</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab4">Perpanjangan Izin Tinggal</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab5">Pembuatan Visa Pelajar (Online)</button>
+      <button class="tab-button px-4 py-2 text-sm font-medium hover:bg-gray-200" data-target="tab6">Pengajuan EPO / ERP</button>
+    </div>
+
+    <!-- Content -->
+    <div class="p-6 flex-1 overflow-y-auto">
+      <div id="tab1" class="tab-content active h-full w-full">
+        <h1 class="text-xl font-bold mb-4">Selamat datang di sistem informasi pemberkasan luar negeri</h1>
+        <p class="text-gray-700 leading-relaxed">
+          Di sini Anda dapat menemukan panduan lengkap mengenai tata cara pengajuan berkas ke Kementerian Agama maupun Imigrasi.
+            Kami menyajikan informasi terbaru terkait persyaratan dokumen serta prosedur yang harus dilaksanakan.
+            Kami berkomitmen untuk mendukung Anda dalam melaksanakan tugas sebagai pembimbing luar negeri secara lebih efektif dan efisien.
+
+            Apabila terdapat hal yang masih belum jelas, jangan ragu untuk mengajukan pertanyaan.
+            Terima kasih.
+                    </p>
+        <p class="mt-6 text-gray-600">Salam kami, Staf Pembimbing Luar Negeri.</p>
+      </div>
+
+      <div id="tab2" class="tab-content h-full w-full">
+        <h1 class="text-xl font-bold mb-4">Surat Rekomendasi Kemenag Domisili</h1>
+        <p class="text-gray-700">Panduan dan persyaratan untuk mendapatkan surat rekomendasi dari Kemenag domisili Anda.</p>
+      </div>
+      
+      <div id="tab3" class="tab-content h-full w-full">
+        <h1 class="text-xl font-bold mb-4">Surat Rekomendasi Kemenag Jakarta</h1>
+        <p class="text-gray-700">Panduan dan persyaratan untuk mendapatkan surat rekomendasi dari Kemenag domisili Anda.</p>
+      </div>
+
+      <!-- dst -->
+    </div>
+  </div>
+
+
+  <!-- Script -->
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // reset
+        buttons.forEach(b => b.classList.remove("bg-white", "border-t-2", "border-blue-500"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        // activate
+        btn.classList.add("bg-white", "border-t-2", "border-blue-500");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
